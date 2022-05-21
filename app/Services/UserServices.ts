@@ -8,7 +8,7 @@ type SignUpParams = {
 }
 
 export default class UsersServices {
-  async signUp({ email, password, username }: SignUpParams) {
+  public async signUp({ email, password, username }: SignUpParams) {
     const emailExists = await User.findBy('email', email)
     if (emailExists) {
       throw AppExceptions.badRequest('email already used')
@@ -27,7 +27,7 @@ export default class UsersServices {
     return user
   }
 
-  async checkUsername(username: string) {
+  public async checkUsername(username: string) {
     const usernameExists = await User.findBy('username', username)
     if (!usernameExists) {
       return false
@@ -36,7 +36,7 @@ export default class UsersServices {
     return true
   }
 
-  async checkEmail(email: string) {
+  public async checkEmail(email: string) {
     const emailExists = await User.findBy('email', email)
     if (!emailExists) {
       false

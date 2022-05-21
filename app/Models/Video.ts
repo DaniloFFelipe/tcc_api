@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import Post from './Post'
 
-export default class Subject extends BaseModel {
+export default class Video extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
@@ -9,7 +10,10 @@ export default class Subject extends BaseModel {
   public name: string
 
   @column()
-  public slug: string
+  public url: string
+
+  @hasOne(() => Post)
+  public posts: HasOne<typeof Post>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

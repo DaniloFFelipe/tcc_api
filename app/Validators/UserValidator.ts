@@ -11,6 +11,11 @@ export default class UserValidator {
     password_confirmation: schema.string([rules.confirmed('password')]),
   })
 
+  public loginInSchema = schema.create({
+    email: schema.string([rules.email()]),
+    password: schema.string(),
+  })
+
   public checkUsernameSchema = schema.create({
     username: schema.string(),
   })

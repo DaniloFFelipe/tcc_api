@@ -1,1 +1,5 @@
 import './users'
+import './subjects'
+import './thumbnails'
+import './videos'
+import './posts'
