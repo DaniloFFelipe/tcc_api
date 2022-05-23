@@ -21,8 +21,9 @@ export default class SubjectSevice {
     return subject
   }
 
-  public async show(search = '', page = 1, limit = 10) {
-    const subjects = await Subject.query().where('name', 'like', search).paginate(page, limit)
+  public async show() {
+    const subjects = await Subject.all()
+    console.log(subjects)
     return subjects
   }
 

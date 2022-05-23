@@ -13,6 +13,7 @@ export default class Posts extends BaseSchema {
       table.integer('user_id').unsigned().references('users.id').onDelete('CASCADE')
       table.integer('video_id').unsigned().references('videos.id').onDelete('CASCADE')
       table.integer('thubnail_id').unsigned().references('thubnails.id').onDelete('CASCADE')
+      table.integer('subject_id').unsigned().references('subjects.id').onDelete('CASCADE')
 
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })

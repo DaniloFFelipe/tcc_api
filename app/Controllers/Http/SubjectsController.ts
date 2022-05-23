@@ -9,12 +9,8 @@ export default class SubjectsController {
     this.service = new SubjectSevice()
   }
 
-  public async index({ response, request }: HttpContextContract) {
-    const page = request.qs().page ?? 1
-    const limit = request.qs().limit ?? 10
-    const search = request.qs().search ?? ''
-
-    const subjects = await this.service.show(search, limit, page)
+  public async index({ response }: HttpContextContract) {
+    const subjects = await this.service.show()
     return response.json(subjects)
   }
 

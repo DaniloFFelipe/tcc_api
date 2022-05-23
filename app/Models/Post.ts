@@ -3,6 +3,7 @@ import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import User from './user'
 import Thumbnail from './Thumbnail'
 import Video from './Video'
+import Subject from './Subject'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -31,6 +32,12 @@ export default class Post extends BaseModel {
 
   @belongsTo(() => Video)
   public video: BelongsTo<typeof Video>
+
+  @column({ columnName: 'subject_id', serializeAs: null })
+  public subjectId: number
+
+  @belongsTo(() => Subject)
+  public subject: BelongsTo<typeof Subject>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
