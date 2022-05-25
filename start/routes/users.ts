@@ -5,4 +5,5 @@ Route.group(() => {
   Route.post('/login', 'UsersController.login')
   Route.post('/checkUsername', 'UsersController.checkUsername')
   Route.post('/checkEmail', 'UsersController.checkEmail')
+  Route.post('/avatar', 'UsersController.addAvatar').middleware('auth')
 }).prefix('/users')

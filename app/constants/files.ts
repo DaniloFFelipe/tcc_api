@@ -9,4 +9,9 @@ export const FILES_CONSTANTS = {
     EXTENSIONS: ['mp4'],
     PATH: 'videos/',
   },
+  AVATAR: {
+    PATH_TO_DISK: './avatars',
+    EXTENSIONS: ['jpg', 'png', 'jpeg'],
+    PATH: 'avatars/',
+  },
 }

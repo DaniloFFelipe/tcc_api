@@ -44,4 +44,17 @@ export default class UsersServices {
 
     return true
   }
+
+  public async udpatateAvatar(id: number, avatar: string) {
+    const user = await User.find(id)
+
+    if (!user) {
+      throw AppExceptions.notFound('user not found')
+    }
+
+    user.avatar = avatar
+    await user.save()
+
+    return user
+  }
 }
