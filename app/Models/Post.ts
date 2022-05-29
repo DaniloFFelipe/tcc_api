@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
-import User from './user'
+import User from './User'
 import Thumbnail from './Thumbnail'
 import Video from './Video'
 import Subject from './Subject'
