@@ -1,5 +1,5 @@
 import AppExceptions from 'App/Exceptions/AppExceptions'
-import User from 'App/Models/user'
+import User from 'App/Models/User'
 
 type SignUpParams = {
   username: string
