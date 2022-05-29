@@ -4,4 +4,5 @@ Route.group(() => {
   Route.post('/upload', 'VideosController.upload')
 })
   .prefix('/videos')
+  .middleware('log')
   .middleware('auth')

@@ -6,4 +6,5 @@ Route.group(() => {
   Route.get('/search-post', 'FeedsController.searchPost')
 })
   .prefix('/feed')
+  .middleware('log')
   .middleware('auth')

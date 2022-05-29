@@ -5,4 +5,5 @@ Route.group(() => {
   Route.get('/', 'SubjectsController.index')
 })
   .prefix('/subjects')
+  .middleware('log')
   .middleware('auth')

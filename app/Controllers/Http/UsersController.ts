@@ -84,8 +84,6 @@ export default class UsersController {
     const url = FILES_CONSTANTS.AVATAR.PATH + avatar.fileName
     const user = await this.service.udpatateAvatar(auth.user!.id, url)
 
-    return response.status(201).json({
-      user: user,
-    })
+    return response.status(201).json(user)
   }
 }
