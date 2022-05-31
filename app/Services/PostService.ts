@@ -18,9 +18,16 @@ type StoreParams = {
 
 type IndexBySubjectParams = {
   subjectId: number
+} & PaginatedBase
+
+type PaginatedBase = {
   page: number
   perPage: number
 }
+
+type GetPostByUserIdParams = {
+  userId: number
+} & PaginatedBase
 
 export class PostService {
   public async index({ title, page, perPage }: IndexParams) {
@@ -99,5 +106,17 @@ export class PostService {
     }
 
     await post.delete()
+  }
+
+  public async getPostByUser({ userId, page, perPage }: GetPostByUserIdParams) {
+    const posts = await Post.query()
+      .where('user_id', userId)
+      .orderBy('created_at', 'desc')
+      .preload('thubnail')
+      .preload('video')
+      .preload('subject')
+      .paginate(page, perPage)
+
+    return posts
   }
 }

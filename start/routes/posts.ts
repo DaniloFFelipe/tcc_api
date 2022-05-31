@@ -6,6 +6,7 @@ Route.group(() => {
   Route.get('/:id', 'PostsController.show')
   Route.put('/:id', 'PostsController.update')
   Route.delete('/:id', 'PostsController.destroy')
+  Route.get('/mine', 'PostsController.postMe')
 })
   .prefix('/posts')
   .middleware('log')

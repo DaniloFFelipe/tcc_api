@@ -58,4 +58,11 @@ export default class PostsController {
 
     return response.noContent()
   }
+
+  public async postMe({ auth, response, request }: HttpContextContract) {
+    const { page = 1, perPage = 10 } = request.qs()
+    const posts = await this.service.getPostByUser({ userId: auth.user!.id, page, perPage })
+
+    return response.json(posts)
+  }
 }
